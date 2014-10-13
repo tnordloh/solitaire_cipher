@@ -4,7 +4,7 @@ module SolitaireCipher
     def initialize deck = nil
       @deck= deck==nil ? (1..52).to_a << :JOKER_A << :JOKER_B : deck
     end
-    
+
     def next_number
       move_jokers;triple_cut;count_cut
       character =@deck[0].respond_to?(:+) ? @deck[0] : 53

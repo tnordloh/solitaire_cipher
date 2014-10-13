@@ -4,17 +4,17 @@ require_relative 'deck'
 module SolitaireCipher
 
   class Cipher
-    
+ 
     def initialize cipher_string, deck=nil
       @cipher_string,@deck,=cipher_string,deck
     end
 
     def encrypt
-      cipher { |character, next_number| next_number+character } 
+      cipher { |character, next_number| next_number+character }
     end
 
     def decrypt
-      cipher { |character, next_number| character+26-next_number } 
+      cipher { |character, next_number| character+26-next_number }
     end
 
     private
