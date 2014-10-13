@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby -w
+
+require_relative "../lib/solitaire_cipher"
+
+begin
+
+  if ARGV.include?("-d")
+    index=ARGV.index("-d")
+    ARGV.delete_at(index)
+    decrypt= ARGV.delete_at(index)
+    puts SolitaireCipher.decrypt(decrypt,*ARGV).scan(/.{1,5}/).join(' ')
+  elsif ARGV.include?("-e")
+    index=ARGV.index("-e")
+    ARGV.delete_at(index)
+    encrypt= ARGV.delete_at(index)
+    puts SolitaireCipher.encrypt(encrypt,*ARGV).scan(/.{1,5}/).join(' ')
+  end
+
+rescue
+  abort "USAGE:  #{$PROGRAM_NAME} PHONE_NUMBER [-d PATH_TO_DICTIONARY_FILE]"
+end
+
