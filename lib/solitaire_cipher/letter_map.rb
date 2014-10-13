@@ -5,7 +5,7 @@ module SolitaireCipher
       @cipher_string = cipher_string
     end
 
-    def to_i
+    def to_a
       @cipher_string.upcase
                     .tr('^A-Z',"")
                     .each_char

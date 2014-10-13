@@ -6,7 +6,8 @@ module SolitaireCipher
   class Cipher
  
     def initialize(cipher_string, deck=nil)
-      @cipher_string,@deck,=cipher_string,deck
+      @cipher_string=cipher_string
+        @deck= deck
     end
 
     def encrypt
@@ -25,7 +26,7 @@ module SolitaireCipher
 
     def cipher(&block)
       deck=SolitaireCipher::Deck.new()
-      SolitaireCipher::LetterMap.new(@cipher_string).to_i.map { |character|
+      SolitaireCipher::LetterMap.new(@cipher_string).to_a.map { |character|
         to_letter(block.call(character,deck.next_number))
       }.join("")
     end

@@ -36,7 +36,7 @@ module SolitaireCipher
     end
 
     def count_cut
-      count = @deck[-1].respond_to?(:+) ? @deck[-1] : 53
+      count = @deck[-1].respond_to?(:+) ? @deck[-1] : 0
       count.times { @deck.insert(-2,@deck.shift) }
     end
 
