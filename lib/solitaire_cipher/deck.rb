@@ -11,10 +11,6 @@ module SolitaireCipher
       @deck[character].respond_to?(:+) ? @deck[character] : next_number
     end
 
-    def to_letter number
-      number == 26 ? "Z" : (number % 26 - 1 + "A".ord()).chr
-    end
-
     private  
 
     def find_position joker
