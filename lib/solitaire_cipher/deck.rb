@@ -38,11 +38,8 @@ module SolitaireCipher
 
     def move_joker joker
       index = joker_position(joker)
-      if index==@deck.length-1
-        @deck.insert(1,@deck.delete_at(index))
-      else
-        @deck.insert(index+1,@deck.delete_at(index))
-      end
+      insert_point= index==@deck.length-1 ? 1 : index+1
+      @deck.insert(insert_point,@deck.delete_at(index))
     end
 
     def count_cut
