@@ -11,8 +11,8 @@ module SolitaireCipher
     
     def next_number
       move_jokers;triple_cut;count_cut
-      count =@deck[0].respond_to?(:+) ? @deck[0] : 53
-      @deck[count].respond_to?(:+) ? @deck[count] : next_number
+      character =@deck[0].respond_to?(:+) ? @deck[0] : 53
+      @deck[character].respond_to?(:+) ? @deck[character] : next_number
     end
 
     def to_letter number
