@@ -16,8 +16,7 @@ module SolitaireCipher
     end
 
     def to_letter number
-      return "Z" if number == 26
-      (number % 26 - 1 + "A".ord()).chr
+      number == 26 ? "Z" : (number % 26 - 1 + "A".ord()).chr
     end
 
     private  
