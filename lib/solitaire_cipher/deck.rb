@@ -2,11 +2,7 @@ module SolitaireCipher
   class Deck
 
     def initialize deck = nil
-      if deck == nil 
-        @deck = (1..52).to_a << :JOKER_A << :JOKER_B
-      else
-        @deck=deck
-      end
+      @deck= deck==nil ? (1..52).to_a << :JOKER_A << :JOKER_B : deck
     end
     
     def next_number

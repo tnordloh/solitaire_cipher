@@ -19,10 +19,14 @@ module SolitaireCipher
 
     private
 
+    def to_letter number
+      number == 26 ? "Z" : (number % 26 - 1 + "A".ord()).chr
+    end
+
     def cipher &block
       deck=SolitaireCipher::Deck.new()
       SolitaireCipher::LetterMap.new(@cipher_string).to_i.map { |character|
-        deck.to_letter(block.call(character,deck.next_number))
+        to_letter(block.call(character,deck.next_number))
       }.join("")
     end
 
