@@ -21,12 +21,12 @@ module SolitaireCipher
 
     private  
 
-    def joker_position joker
+    def find_position joker
       @deck.index(joker)
     end
 
     def triple_cut
-      x,y = [joker_position(:JOKER_A),joker_position(:JOKER_B)].sort
+      x,y = [find_position(:JOKER_A),find_position(:JOKER_B)].sort
       @deck =@deck.drop(y+1) + @deck[x..y] + @deck.take(x)
     end
 
@@ -36,7 +36,7 @@ module SolitaireCipher
     end
 
     def move_joker joker
-      index = joker_position(joker)
+      index = find_position(joker)
       insert_point= index==@deck.length-1 ? 1 : index+1
       @deck.insert(insert_point,@deck.delete_at(index))
     end
