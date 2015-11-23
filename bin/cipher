@@ -14,9 +14,11 @@ begin
     ARGV.delete_at(index)
     encrypt= ARGV.delete_at(index)
     puts SolitaireCipher.encrypt(encrypt,*ARGV).scan(/.{1,5}/).join(' ')
+  else 
+    raise "argumenterror"
   end
 
 rescue
-  abort "USAGE:  #{$PROGRAM_NAME} PHONE_NUMBER [-d PATH_TO_DICTIONARY_FILE]"
+  abort "USAGE:  #{$PROGRAM_NAME} [-d or -e] 'message'"
 end
 
